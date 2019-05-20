@@ -1,0 +1,17 @@
+Daily Coding Problem for May 19 2019
+
+Asked by Google:
+
+Given a sorted list of integers, square the elements
+and give the output in sorted order.
+
+For example, given [-9,-2,0,2,3], return 
+[0,4,4,9,81]
+
+Given:
+list is sorted already
+values are only integers
+
+Initial thought:
+maybe we need to tweak a normal merge sort algorithm
+maybe just replace the items with absolute value and reorder and square values
