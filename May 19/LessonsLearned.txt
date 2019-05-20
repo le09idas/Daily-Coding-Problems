@@ -1,0 +1,16 @@
+Summary:
+
+It's evident that the merge sort was the way to go
+for this problem.  I was having trouble with the algorithm, 
+but after I made it more granular, it worked smoother.  
+
+Lesson1: For merge sort, there is always 1 base case:
+that of the unit array, which has only one element. 
+Lesson2: With the granularization of the mergeSort algorithm,
+it gives a flexibility with manipulation the value of the data
+held in an index. But, this doesn't impact the sorting because 
+it is pre-emptive to the actual sorting and merging.
+
+Final Thoughts:
+Stick to a very granular algorithm.  Then you can manipulate
+to your hearts content.

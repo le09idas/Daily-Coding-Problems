@@ -1,62 +1,88 @@
 import java.util.Arrays;
+
+import javax.lang.model.util.ElementScanner6;
 //squareMearge.java
 class SquareMerge
 {
-    public static int[] squareMerge(int[] arr)
+    /*
+    Takes 
+    */
+    public static void squareMergeSort(int[] arr, int low, int high)
     {
-        int[] smList = arr;
-
-        if(smList.length == 1)
+        if(low == high) //one index?
         {
-            smList[0] = smList[0]*smList[0];
+            arr[low] = arr[low]*arr[low];//square the index's value
+            return;
         }
-        else if(smList.length == 2)
+        else //multiple indices
         {
-           
-            smList[0] = smList[0]*smList[0];
-            smList[1] = smList[1]*smList[1];
-            if(smList[0] > smList[1])
+            //recursively call function to manipulate and sort values
+            squareMergeSort(arr, low, (low + high)/2);//first half of subarray
+            squareMergeSort(arr, (low+high)/2+1, high);//second half of subarray
+            squareMerge(arr, low, (low+high)/2, high);//actual sorting
+        }
+    }
+
+    public static void squareMerge(int[] arr, int low, int mid, int high)
+    {
+        //set the size of the temp array to be the range from high to low, plus one for index decrement
+        int [] temp = new int[high - low + 1];
+        int i =low, j=mid + 1, k=0;
+        
+        /*
+        gist of sorting: have separate pointers for each subarray.
+        Choose the lowest one to save to the temp array and 
+        increment pointers accordingly.  If one interval 
+        finishes, then fill the temp array with the rest of the 
+        other subarray, which should be sorted.  
+        */
+        while(i <= mid && j <= high)
+        {
+            if(arr[i] < arr [j])
             {
-                int temp = smList[0];
-                smList[0] = smList[1];
-                smList[1] = temp;
+                temp[k] = arr[i];
+                k++;i++;
             }
-            
+            else
+            {
+                temp[k] = arr[j];
+                k++;j++;
+            }
         }
-        else
+
+        //fin in if second subarray empties
+        while(i <= mid)
         {
-            int subSMList1[] = Arrays.copyOfRange(arr, 0, arr.length/2 + 1);
-            int subSMList2[] = Arrays.copyOfRange(arr, arr.length/2 + 1, arr.length);
-
-           
-            //subSMList1 = squareMerge(subSMList1);
-            System.out.print(Arrays.toString(subSMList1) + ", ");
-            //subSMList2 = squareMerge(subSMList2);
-            System.out.print(Arrays.toString(subSMList2) + "; ");
-         
-            int i, s1=0,s2=0;
-
-            for(i=0;i<subSMList1.length;i++)
-                smList[i] = subSMList1[s1];
-                s1++;
-            for(int j = i; j<subSMList1.length + subSMList2.length; j++)
-                smList[j] = subSMList2[s2];
-                s2++;
-
-            System.out.println(Arrays.toString(smList) + " !");
-
+            temp[k] = arr[i];
+            k++;i++;
         }
-        return smList;
+
+        //fill in if first subarray empties
+        while(j <= high)
+        {
+            temp[k] = arr[j];
+            k++;j++;
+        }
+
+        //this segment replaces the values in the original array
+        //with the sorted values of the temp
+        k = 0;
+        for(i = low; i<=high; i++)
+        {
+            arr[i] = temp[k];
+            k++; 
+        }
+
     }
 }
 class TestSquareMerge
 {
-
+    //code block to test squareMergeSort
     public static void main(String[] args)
     {
-        int[] arr = {-9, -1, 0 , 1, 2};
+        int[] arr = {-9,-2,0,2,3};
         System.out.println(Arrays.toString(arr));
-        arr = SquareMerge.squareMerge(arr);
+        SquareMerge.squareMergeSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
