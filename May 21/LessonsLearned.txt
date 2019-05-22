@@ -1,0 +1,17 @@
+Lessons Learned:
+singleton design pattern can be made to used to keep alive two objects
+never redeclare objects in an if statement (scoping consequences)
+
+Further Quesstions:
+Was there any consideration for multiple threads for this sort of question?
+I.e., would synchronized have to be used for getInstance()?
+
+Final thoughts:
+It seems that the solution was just a simple mechanism like the 
+one described in the Brainstorming.txt.  The tricky part was to keep track of the parity,
+which turns out, well at least in my implementation, to be choosing the 
+current invocation number (turn) modulo 2. I have also kept my initial idea of just switching
+the values of the indices of the pair array before returning the object, which is another solution,
+but not very good if the number of ntons was to get larger.  With the current setup, you just have
+to set the pair array to the size of how many ntons you want and then give that value to the modulo
+in the return statement of the getInstance() funciton.

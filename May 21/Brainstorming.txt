@@ -1,0 +1,19 @@
+Daily Coding Problem for May 21 2019
+
+This problem was asked by Microsoft.
+
+Implement the singleton pattern with a twist. First, 
+instead of storing one instance, store two instances.
+And in every even call of getInstance(), return the 
+first instance and in every odd call of getInstance(), 
+return the second instance.
+
+Initial Thoughts:
+Have the singleton instances be stored in an array;
+the first time instances are called, both are created but
+we return the second instance. The frist is put in index one
+and the second is put in index zero.  Upon subsequent 
+getInstance calls, the two items are switched and the first 
+indexed value is returned.  Thus on the the second
+(even) invocation of getIntance(), the first instance will be
+returned and every odd invocation the 2nd.
