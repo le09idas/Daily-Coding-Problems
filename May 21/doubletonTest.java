@@ -3,8 +3,8 @@ class Doubleton
 {
     static private Doubleton instance1;
     static private Doubleton instance2;
-    static private int turn;
-    static private Doubleton[] pair;
+    static private int turn; //used to track parity of the number of invocations by being modded with 2
+    static private Doubleton[] pair; //the container of the two instances
 
     private Doubleton(){};
 
@@ -22,10 +22,11 @@ class Doubleton
             
         }
         
-        Doubleton temp = pair[0];
-        pair[0] = pair[1];
-        pair[1] = temp;
-        return pair[0];
+        turn++;
+        //Doubleton temp = pair[0];
+        //pair[0] = pair[1];
+        //pair[1] = temp;
+        return pair[turn%2];
     }
 }//end Doubleton
 class TestApp{

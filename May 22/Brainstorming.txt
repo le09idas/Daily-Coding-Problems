@@ -1,0 +1,28 @@
+This problem was asked by Google.
+
+Given a string which we can delete at most k, 
+return whether you can make a palindrome.
+
+For example, given 'waterrfetawx' and a k of 2,
+you could delete f and x to get 'waterretaw'.
+
+given:
+You have a string of variable length
+You'll have to remove k
+
+Initial thought:
+Brute force would say map each letter and see if 
+you have pairs, and if so, are there others witing their range
+if there are letters in the way, take them away as long
+as you have k > 0
+
+Base case would be a single letter and 
+a k of 0.  Since we have the option of removing
+up to k, k could be infinitely big and not really matter when we have 
+a single letter.  when it comes to 2 letters, there are two possibilites:
+they are both the same and k is negligible and the result is true.
+If both are different, one needs to be taken away, so k > 0 for the check 
+to come back positive.  In the event of 3 letters: if they're all, different,
+k > 2, if two are the same, k > 1.
+
+The way to start going about this is to work from a regular palindrome  checker.

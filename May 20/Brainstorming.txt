@@ -11,72 +11,22 @@ For example, given the intervals
 numbers that covers all these intervals {3,6}
 
 Given:
-list of intervals
+list of  interval pairs
+
+Questions:
+Are we only counting  the end points or numbers in between, i.e.
+is {3, 7} a valid answer?
+Can a single point be an integer? i.e. [1,1]
 
 Initial thought:
+The brute force way would be to make all possible sets 
+of numbers and then test each, from the smallest sets first,
+and see if the number(s) cover the intervals.
 
-if I place the intervals side by side, I get a picture such
-as this:
-
-[0,3] ._._._. . . . . . .
-[2,6] . . ._._._._. . . .
-[3,4] . . . ._. . . . . .
-[6,9] . . . . . . ._._._.
-      0 1 2 3 4 5 6 7 8 9
-Now, I would need some clarification on what part of the 
-interval is being used? The lower and upper limits, i.e. the
-integers that begin and end the interval, or the set of numbers
-between and including the ends of the interval.  So for example,
-could a solution be {3,7}, since it's part of the range of [6,9].
-
-From what I could piece together online, it would appear that for 
-a number to cover an interval, it just has to be in the range of 
-that interval.  So in that case, {3,7} would not be a sufficient answer.
-
-The brute force way to do this would be to maybe get every subset of each 
-interval and see what the most common element is.  But, I noticed that 
-when the intervals are ordered, you can tell more easily which number is 
-covering which intervals.  
-
-However, lets begin this problem at the base case, let's say interval [a,b]
-
-[a,b] . . . . ._._._. .
-      0 ...   a ... b ...
-Here, the set of numbers that cover the intervals would only be size 1 and be 
-a choice from {a}, ..., {b}.  
-
-Let's say there are two intervals, [a,b] and [b,c]
-
-[a,b] . . . ._._._. . . .
-[b,c] . . . . . . ._._. .
-      0 ... a ... b...c ...
-
-Here, the possible cover sets are {a}, {b}, {c}, ..., {a,b,c}
-
-{a,b,c} certainly covers the intervals, and {a,b} and {b,c} do the
-trick as well, but {b} covers everything and is the smallest.  
-
-However, let's add a third interval that is far removed
-
-[a,b] . . ._._. . . . . .
-[b,c] . . . . ._. . . . .
-[g,h] . . . . . . . . ._.
-      0...a...b.c ... g.h
-
-We see that {b} alone does not cover the interval, so we are 
-force to accept any of {b,g},{b,g+1},...{b,h} as the smallest smallest.
-
-For cases where an interval is a subinterval of another, [a,d] [b,c]
-
-[a,d] . . ._._._. . .
-[b,c] . . . ._. . . .
-      0...a.b.c.d...
-
-The possible smallest covers are any of {b},{b+1},...{c}
-
-When the intrvals are ordered, it looks like it could be possible
-to find a smallest set by iterating over the intervals and checking 
-if one of these 3 statements is true:
-1) does the previous interval overlap the current?
-2) does the previous interval not overlap?
-3) is the either of these current interval a subinterval of the previous?
+Simplify the problem:
+say we start with a list of intervals of size one;
+i.e. [0,3].  Int this case the total number of solutions is
+3: {0}, {3}, {0,3}.  From the constraints of the problem,
+{0} or {3} are possible solutions. When we get two intervals,
+i.e [0,3], [2,6]. We note that for any interval, 2 out of 3 of the number
+of possible  sets ar  the smallest and able to cover the interval.
