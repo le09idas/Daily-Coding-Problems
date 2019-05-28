@@ -1,0 +1,21 @@
+Summary:
+
+This seemed a little too easy, but sometimes
+prompts like these are.  All that needed to be
+done was to have two loops, one to copy each item
+being rotated to the rear and one to move all the 
+following elements up towards the head of the list.
+To make things general, I use an Object array 
+allowing for various items of various types to 
+be able to be input
+
+Lesson1: K.I.S.S. (Keep It Simple Stupid) 
+Lesson2: For lists that need to be substantially
+modified, two loops are necessary to get things done
+Lesson3: The Object class is very versatile
+
+Final Thoughts:
+The Object class is very useful for situations
+where the types of objects are not necessarily known.
+Although doable in Java, it would appear to be more 
+elegantly handled in Python.

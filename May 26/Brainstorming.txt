@@ -1,0 +1,31 @@
+Daily Coding Problem for May 26 2019
+
+This problem was asked by Google.
+
+Given the root of a binary search tree, and a 
+target of K, return two nodes in the tree 
+whose sum equals K.
+
+For example, given the following tree and K of 20
+    10
+  /    \
+ 5      15
+      /    \
+     11    15
+Return the nodes 5 and 15.
+
+Given:
+Root of a binary tree
+A binary tree
+A sum for two leaves to be equal to
+
+Initial thought:
+Maybe a recursive algorithm would be most 
+capable of solving this.
+
+The brute force method would entail listing out all the sums
+between each node of the tree until K is made
+
+Note, we cannot have a single noded tree; we'll always need at least
+2 nodes for a sum.
+
