@@ -13,3 +13,28 @@ For example, in this matrix
 1 5 3 1
 
 The most we can collect is 0 + 2 + 1 + 5 + 3 + 1 = 12 coins.
+
+Given:
+and 2-d array
+can move in only two directions, down and right 
+
+Initial thought:
+Brute force would say to log every path recursively and 
+log it; that is a bad idea because of all the memroy needed
+for each recursive call for bigger and bigger matrices.
+
+Star with a basic matrix that is 1X1.  The highhest amount of coins would be
+whatever value was stored in that index.  For the above it would be 0. If we 
+include the values directily right and down and diagonal we have a matrix
+
+0 3
+2 0
+
+The optimal solution would be 3, after going right and then
+down.
+
+Now let's include another layer
+
+0 3 1
+2 0 0
+1 5 3
