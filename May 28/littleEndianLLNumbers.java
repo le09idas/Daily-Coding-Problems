@@ -23,33 +23,32 @@ class LEInteger
     
     public LEInteger(int number)
     {
-    	String text = Integer.toString(number);
-    	
-    	this.lowAddr = null;
-    	for(int i = text.length() - 1; i >=0; i--)
+        String text = Integer.toString(number);
+        this.lowAddr = new DigitNode(Character.getNumericValue(text.charAt(text.length()-1)));
+        
+    	for(int i = text.length() - 2; i > -1; i--)
     	{
-    		DigitNode temp = this.lowAddr;
-    		this.lowAddr = new DigitNode(Character.getNumericValue(text.charAt(i)));
-    		this.lowAddr.next = temp;
-    	}
+            DigitNode temp = this.lowAddr;
+            this.lowAddr = new DigitNode(Character.getNumericValue(text.charAt(i)));
+            this.lowAddr.next = temp;
+        }
     }
     
     public String toString()
     {
-    	String num = "";
-    	DigitNode ptr = this.lowAddr;
-    	while(ptr.next != null)
+        String num = "";
+        DigitNode ptr = this.lowAddr;
+    
+        while(ptr != null)
     	{
-    		num.concat(ptr.toString());
-    		
-    		if(this.lowAddr.next != null)
+    		num += ptr.toString();
+    		if(ptr.next != null)
     		{
-    			num.concat("->");
+    			num += "->";
     		}
     		
     		ptr = ptr.next;
     	}
-    	
     	return num;
     }
 }
@@ -58,7 +57,7 @@ class TestApp
 {
 	public static void main(String[] args)
 	{
-		LEInteger num = new LEInteger(8);
+        LEInteger num = new LEInteger(128);
 		System.out.println(num.toString());
 	}
 }
