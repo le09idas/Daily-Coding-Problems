@@ -1,15 +1,30 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for May 24 2019
 
-<Prompt/Question>
+This problem was asked by LinkedIn.
+
+Given a string, return whether it represents a number. Here are the different kinds of numbers:
+
+"10", a positive integer
+"-10", a negative integer
+"10.1", a positive real number
+"-10.1", a negative real number
+"1e5", a number in scientific notation
+
+And here are examples of non-numbers:
+
+"a"
+"x 1"
+"a -2"
+"-"
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+input of a string variety is given
+needs to be either an integer, decimal or 
+scientific notation
 
-Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above pbolem>
+Initial though t:
+Looks like we just need to create the 
+logic for a state machine and then 
+respective code for each step
 
 <Additional ideas and thoughts/notes>

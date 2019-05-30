@@ -1,15 +1,18 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for May 25 2019
 
-<Prompt/Question>
+This problem was asked by Microsoft.
+
+You have n fair coins and you flip them all at the same time. 
+Any that come up tails you set aside. The ones that come up heads 
+you flip again. How many rounds do you expect to play before only one coin remains?
+
+Write a function that, given n, returns the number of rounds you'd
+expect to play until one coin remains.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+n fair coins are flipped
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above pbolem>
-
-<Additional ideas and thoughts/notes>
+From probability, we know that the expected value of
+flipping n coins is given by this formula:
+E[X] = n*.5 Where X is the random number of coins that turn up heads

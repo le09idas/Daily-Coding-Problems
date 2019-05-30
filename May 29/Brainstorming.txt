@@ -1,0 +1,75 @@
+Daily Coding Problem for May 29 2019
+
+The Tower of Hanoi is a puzzle game with three rods 
+and n disks, each a different size.
+
+All the disks start off on the first rod in a stack. 
+They are ordered by size, with the largest disk on the 
+bottom and the smallest one at the top.
+
+The goal of this puzzle is to move all the disks from 
+the first rod to the last rod while following these rules:
+
+You can only move one disk at a time.
+A move consists of taking the uppermost disk from one 
+of the stacks and placing it on top of another stack.
+You cannot place a larger disk on top of a smaller disk.
+Write a function that prints out all the steps necessary 
+to complete the Tower of Hanoi. You should assume that the 
+rods are numbered, with the first rod being 1, the second 
+(auxiliary) rod being 2, and the last (goal) rod being 3.
+
+For example, with n = 3, we can do this in 7 moves:
+
+Move 1 to 3
+Move 1 to 2
+Move 3 to 2
+Move 1 to 3
+Move 2 to 1
+Move 2 to 3
+Move 1 to 3
+
+Given:
+There will always be 3 rods
+You have to get n disks to 
+the other end
+
+Initial thought:
+Analyzing the problem, there seems to be
+an elegant algorithm to solving it. We have to go to the 
+base case of one disk.  There is only one move that needs
+to be performed: 1 to 3
+
+For two disks: 1 to 2, 1 to 3, 2 to 3
+
+With one disk, we had to go all the way to the last tower.
+
+For two disks, we had to put the first disk in the auxiliary 
+tower to make way for the second disk and then follow up with 
+the first.  
+
+Notice that we have to go all the way to the right most tower from where we where
+starting in the first scenario.  We had to go just one tower over for each disk movement.
+
+We get to case 3, whose movements are given above, and things
+become a little more interesting.  This is the first scenario where
+we have a disk at each tower.  At this point, we can only move the smallest
+disk to a new position (or else the second one just doubles back).  
+Which way should the disk move.  It's at the end. And it goes left, i.e.
+3 to 2.  This doesn't correlate with the apparent pattern of the base case
+of 1 disk.  
+
+That is unless we view the Hanoi towers in a circular formation
+(like a linked list).  Then we could say that for the first scenario,
+the disk moved to the immediate left that it could go to tower 3.  
+
+It turns out, that for the odd number of disks, you can get all disks
+to the last tower by moving them repeatedly to the most immediate available 
+tower to them.  That is, they needs to move immediately left to a tower whose topmost 
+disk is bigger.  A similar pattern appears for and even amount of disks but instead, each 
+disk must seek the most immedated available right tower.
+
+It would seem that a good way to keep track of which tower we're on and how many disks are
+one each is a circular doubly linked list which contain a stack of disk objects.  The algorithm 
+runs until all the disks are on tower 3, which should only happen when the disks are perfectly
+stacked in size order.  
