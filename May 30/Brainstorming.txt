@@ -1,0 +1,18 @@
+Daily Coding Problem for May 30 2019
+
+Given a real number n, find the square
+root of n. For example, gvien n=9, return
+3.
+
+Given:
+A real number
+
+Assumed:
+these values are positive (can't square a negative)
+
+Initial thought:
+Let's reduce this to finding the square root
+of all positive integers and 0.  All i would have to do is 
+start form zero and see which one squared equals the target value.
+However, not every integer will be covered.  We will have to find 
+real numbers that multiply out to them.
