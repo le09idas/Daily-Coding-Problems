@@ -1,0 +1,6 @@
+//stockIntervalMaxProfit.java
+
+class StockInterval
+{
+    
+}

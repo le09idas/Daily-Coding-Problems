@@ -1,0 +1,30 @@
+Daily Coding Problem for June 2 2019
+
+This question was asked by Riot Games.
+
+Design and implement a HitCounter class
+that keeps track of requests, or hits.  
+It should support the following operations:
+
+-record(timestamp):
+records a hit that happened at timestamp
+-total():
+returns the total number of hits
+recorded
+range(lower, upper):
+returnst the number of hits that
+occurred between timestamps lower
+and upper (inclusive)
+
+Follow-up: What if our system has 
+limited memory.
+
+Given:
+schematic for HitCounter class
+
+Initial thought:
+Use an arraylist of timestamps to hold all
+the hits; this by default allows it to have
+a size which can be used to get the total number of 
+hits; also, we can choose which index to show
+the hit for with a linear search.

@@ -14,19 +14,33 @@ Given:
 list of  interval pairs
 
 Questions:
-Are we only counting  the end points or numbers in between, i.e.
+Are we only counting the end points or numbers in between, i.e.
 is {3, 7} a valid answer?
-Can a single point be an integer? i.e. [1,1]
+Can a single integer be a point? i.e. [1,1]
 
 Initial thought:
 The brute force way would be to make all possible sets 
 of numbers and then test each, from the smallest sets first,
 and see if the number(s) cover the intervals.
 
-Simplify the problem:
-say we start with a list of intervals of size one;
-i.e. [0,3].  Int this case the total number of solutions is
-3: {0}, {3}, {0,3}.  From the constraints of the problem,
-{0} or {3} are possible solutions. When we get two intervals,
-i.e [0,3], [2,6]. We note that for any interval, 2 out of 3 of the number
-of possible  sets ar  the smallest and able to cover the interval.
+Let's say we start with just one interval, let's say [0,3].
+
+The possible answers are {0} and {3}, which by the premise
+of the question, are valid options.  Now let's say we have
+2 intervals: [0,3], [2,6].
+
+The answer here could be {0, 2}, {0, 6}, {3, 2}, or {3, 6}.
+
+Now with 3 intervals: [0,3], [2,6], [3,4].
+The possible solutions are:
+{3, 2} and {3, 6}. (but if we aren't counting only endpoints, 
+answer could be {3})
+
+There is still no apparent pattern. Maybe if we visualize it differently.
+
+Maybe by actually lining them up next to each other:
+
+[0,3] ._._._. . . . . . .
+[2,6] . . ._._._._. . . .
+[3,4] . . . ._. . . . . .
+[6,9] . . . . . . ._._._.

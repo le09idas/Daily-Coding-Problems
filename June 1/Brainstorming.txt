@@ -1,0 +1,34 @@
+Daily Coding Problem for June 1 2019
+
+This question was asked by Snapchat.
+
+Given the head to a singly linked list,
+where each node also has a "random" pointer
+that points to anywhere in the linked
+list, deep clone the list.
+
+Given:
+The head of a singly linked list
+
+Initial thought:
+Have a pointer interate through the list.
+Have a fabricator use a helper function to 
+create a totaly new clone of the current node pointed to.
+
+This should result, in the normal case, a duplicate 
+linked list that is singly linked.  However, with the added
+feature of a random link, this complicates the deep copy because
+there is no immediate way to correctly verify that the node is the 
+correct random node.
+
+The first thing that comes to mind is to use a pivot ptr, and then a 
+secondary that traverses to the end while a counter gets the length to
+the end (maybe a helper function would be useful here)
+
+Now that I think about it, maybe creating a blank list
+before actually copying values would be a good idea. Also, maybe we 
+should include a counter in the main clone function to keep track of how far
+from the head we are. 
+
+At the moment, the algorithm described above is O(n^2).  Is there a better
+way?

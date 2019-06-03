@@ -1,0 +1,25 @@
+Summary:
+
+I was able to make a simple binary tree
+that was able to be traversed both ways.  
+It turned out a simple set of logic needed to be
+implemented, where the trickiest part was when you 
+were considering the parent node to the current leaf
+as the possible successor.  However, when that was
+resolved, the solution was straighforward.
+
+Lesson1: Having a parent node makes navigating a binary
+tree much easier 
+Lesson2: Always think in terms of recursion when dealing with 
+binary trees
+
+Final Thoughts:
+It pays to see how far we can go with giving
+extra attributes to basic datastructures.  I wonder
+how hard it would be to implement this same application
+of finding the next successor without the reference to the 
+parent node of the current tree.  It would probably be at first
+glance involve having to find you way from the root of the tree
+and upon seeing that the target node was either left or 
+right child, perform certain checks to reach an identical conclusion
+as with the implementation with a parent pointer.  
