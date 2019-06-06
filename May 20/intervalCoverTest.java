@@ -26,51 +26,25 @@ class Node
 class List
 {
     Node head;
-
-    int numIntervals;
     int lowExtreme;
     int highExtreme;
 
     public List(Node head)
     {
         this.head = head;
-
-        this.numIntervals = 1;
-        this. lowExtreme = head.lowLim;
+        this.lowExtreme = head.lowLim;
         this.highExtreme = head.highLim;
     }
 
     public void addInterval(Node interval)
     {
-        if(interval.lowLim < lowExtreme)
+        Node ptr = this.head;
+
+        while(ptr != null) //travel list
         {
-            interval.next = this.head;
-            this.head.prev = interval;
-            this.head = interval;
-
-            this.lowExtreme = this.head.lowLim;
+            
         }
-        else
-        {
-            Node temp = this.head.next;
-
-            while(interval.lowLim > temp.lowLim)
-            {
-                if(temp.next == null)
-                {
-                    temp.next = interval;
-                    if(interval.highLim > this.highExtreme)
-                        this.highExtreme = interval.highLim;
-                    break;
-                }
-                temp = temp.next;
-            }
-
-            interval.prev = temp.prev;
-            temp.prev = interval;
-            interval.next = temp;
-        }
-        this.numIntervals++;
+        
     }
 }
 class TestApp
@@ -79,14 +53,16 @@ class TestApp
     {
         Node one = new Node(1,2);
         Node two = new Node(2,2);
+        Node three = new Node(2,1);
         
         List list = new List(one);
         list.addInterval(two);
+        list.addInterval(three);
 
         Node curr = list.head;
         while(curr != null)
         {
-            System.out.println(one.toString());
+            System.out.println(curr.toString());
             curr = curr.next;
         }
     }
