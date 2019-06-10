@@ -9,7 +9,15 @@ class Set {
     }
 
     public void addElement(int e) {
+
+        for (int i = 0; i < this.set.size(); i++) {
+            if (this.set.get(i).compareTo(Integer.toString(e)) == 0) {
+                return;
+            }
+
+        }
         this.set.add(Integer.toString(e));
+
     }
 
     public String toString() {
@@ -45,6 +53,30 @@ class Node {
         this.next = null;
     }
 
+    public boolean isSubset(Node target) {
+        if (this.lowLim <= target.lowLim && this.highLim >= target.highLim) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean lowIntersect(Node target) {
+        if (this.lowLim <= target.lowLim && this.highLim >= target.lowLim && this.lowLim < target.highLim
+                && this.highLim < target.highLim) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean highIntersect(Node target) {
+        if (this.lowLim < target.lowLim && this.highLim < target.lowLim && this.lowLim >= target.highLim
+                && this.highLim <= target.highLim) {
+            return true;
+        }
+        return false;
+    }
+
     public String toString() {
         return "[" + Integer.toString(this.lowLim) + "," + Integer.toString(this.highLim) + "]";
     }
@@ -65,53 +97,48 @@ class List {
         Node ptr = this.head;
 
         while (ptr != null) {
-            if (ptr.prev == null) {
-                if (interval.lowLim < ptr.lowLim) {
+            if (interval.lowLim <= ptr.lowLim && interval.highLim <= ptr.highLim) {
+                if (ptr.prev == null) {
                     this.head = interval;
-                    this.head.next = ptr;
-                    ptr.prev = this.head;
-                }
-                if (interval.lowLim == ptr.lowLim && interval.highLim < ptr.highLim) {
-                    this.head = interval;
-                    this.head.next = ptr;
-                    ptr.prev = this.head;
-                }
-                if (interval.lowLim == ptr.lowLim && interval.highLim > ptr.highLim) {
-                    interval.prev = ptr;
-                    interval.next = ptr.next;
-                    if (ptr.next == null) {
-                        ;
-                    } else {
-                        ptr.next.prev = interval;
-                    }
+                    interval.next = ptr;
+                    ptr.prev = interval;
+                } else {
+                    interval.prev = ptr.prev;
+                    interval.next = ptr;
+                    ptr.prev.next = interval;
+                    ptr.prev = interval;
                 }
                 return;
-            } else {
-                if (interval.lowLim <= ptr.lowLim) {
-                    if (interval.highLim <= ptr.highLim) {
-                        interval.prev = ptr.prev;
-                        interval.next = ptr;
-                        ptr.prev.next = interval;
-                        ptr.prev = interval;
-                    } else {
-                        interval.prev = ptr;
-                        interval.next = ptr.next;
-                        ptr.next.prev = interval;
-                        ptr.next = interval;
-                    }
-                    return;
-                }
-
+            }
+            if (ptr.next == null) {
+                ptr.next = interval;
+                interval.prev = ptr;
+                return;
             }
             ptr = ptr.next;
-
         }
 
     }
 
-    public Set findSmallestCover(List intervals) {
+    public static Set findSmallestCover(List intervals) {
 
         Set smallest = new Set();
+
+        Node ptr = intervals.head;
+
+        while (ptr != null) {
+            if (ptr.prev == null) {
+                ptr = ptr.next;
+            }
+            for (int i = ptr.lowLim; i <= ptr.highLim; i++) {
+                if (i > ptr.prev.lowLim && i < ptr.prev.highLim) {
+                    smallest.addElement(i);
+                } else {
+                    smallest.addElement(ptr.prev.highLim);
+                }
+            }
+            ptr = ptr.next;
+        }
 
         return smallest;
     }
@@ -119,10 +146,12 @@ class List {
 
 class TestApp {
     public static void main(String[] args) {
-        Node one = new Node(2, 2);
-        Node two = new Node(1, 2);
-        Node three = new Node(2, 1);
-        Node four = new Node(1, 3);
+        Node one = new Node(0, 3);
+        Node two = new Node(3, 4);
+        Node three = new Node(2, 4);
+        Node four = new Node(6, 9);
+
+        System.out.println(three.highIntersect(two));
 
         List list = new List(one);
         list.addInterval(two);
@@ -135,13 +164,9 @@ class TestApp {
             curr = curr.next;
         }
 
-        System.out.println("LowExtreme : " + list.lowExtreme);
-        System.out.println("HighExtreme : " + list.highExtreme);
+        Set smallest = List.findSmallestCover(list);
+        System.out.println(smallest.toString());
 
-        Set s = new Set();
-        s.addElement(1);
-        s.addElement(2);
-        System.out.println(s.toString());
     }
 
 }// end TestApp
