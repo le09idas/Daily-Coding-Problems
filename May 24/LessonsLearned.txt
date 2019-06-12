@@ -1,0 +1,18 @@
+Summary:
+
+Basically, there is one big loop, which branches
+out into smaller loops where need be.  Going about this with
+finite state machine mindset really help shape the loops.
+According to the rules of a scientific notation, you can't have 
+a decimal in the exponent.  I didn't consider having an exponent 
+that was also in scientific notatation.  I allowed for answers such as 
+10. and .0 to remain, because they are technially valid decimals, which are
+valid rationals.
+
+Lesson1: Sometimes the brute force is the only force
+
+Final Thoughts:
+Although this implementation gets the job done, I think there
+is places where the workload could be redone.  For example, I realized that 
+if first element is a '-', all we have to really do is just start the main loop 
+at index 1 instead of zero and just keep a note that the answer will be negative. 
