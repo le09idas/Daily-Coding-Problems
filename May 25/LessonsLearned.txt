@@ -1,0 +1,16 @@
+Summary:
+
+Combining the forces of mathematics and computer science,
+i was able to apply a simple formulat to get the total number of 
+rounds it would take to reduce a number of coins to 1 through
+elimination. The main method of operation was to just keep 
+dividing n by 2 until it equals 1 and keep the number of times 
+n was divided.
+
+Lesson1: Knowing mathematical principles is very helpful with 
+these kind of problems
+
+Final Thoughts:
+It would probably be wise to invest in learning more mathematics and 
+logic to ameliorate the way I tackle some programming problems.
+I.E. give my brute force intuition some mathematical/logical wisdom
