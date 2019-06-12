@@ -16,3 +16,6 @@ Initial thought:
 From probability, we know that the expected value of
 flipping n coins is given by this formula:
 E[X] = n*.5 Where X is the random number of coins that turn up heads
+
+So, what could be done, is to just have a function that divides n by 2 until
+1 is remaining; meanwhile, a count will be kept.
