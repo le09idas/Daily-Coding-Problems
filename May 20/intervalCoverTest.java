@@ -1,17 +1,22 @@
 import java.util.ArrayList;
 
 //intervalCoverTest
-class Set {
+class Set
+{
     ArrayList<String> set;
 
-    public Set() {
+    public Set() 
+    {
         this.set = new ArrayList<String>();
     }
 
-    public void addElement(int e) {
+    public void addElement(int e) 
+    {
 
-        for (int i = 0; i < this.set.size(); i++) {
-            if (this.set.get(i).compareTo(Integer.toString(e)) == 0) {
+        for (int i = 0; i < this.set.size(); i++) 
+        {
+            if (this.set.get(i).compareTo(Integer.toString(e)) == 0) 
+            {
                 return;
             }
 
@@ -20,17 +25,25 @@ class Set {
 
     }
 
-    public String toString() {
+    public String toString() 
+    {
         String displaySet = "{";
 
         int i = 0;
 
-        displaySet = displaySet.concat(this.set.get(i));
-        i++;
-
-        while (i < this.set.size()) {
-            displaySet = displaySet.concat(", " + this.set.get(i));
+        if(this.set.size() == 0){
+            ;
+        }
+        else
+        {
+            displaySet = displaySet.concat(this.set.get(i));
             i++;
+
+            while (i < this.set.size()) 
+            {
+                displaySet = displaySet.concat(", " + this.set.get(i));
+                i++;
+            }
         }
 
         displaySet = displaySet.concat("}");
@@ -39,56 +52,75 @@ class Set {
     }
 }
 
-class Node {
+class Node 
+{
     int lowLim;
     int highLim;
 
     Node prev;
     Node next;
 
-    public Node(int low, int high) {
+    public Node(int low, int high) 
+    {
         this.lowLim = low;
         this.highLim = high;
         this.prev = null;
         this.next = null;
     }
 
-    public boolean isSubset(Node target) {
-        if (this.lowLim <= target.lowLim && this.highLim >= target.highLim) {
+    public boolean isSubset(Node target)
+     {
+        if (this.lowLim >= target.lowLim && this.highLim >= target.highLim) 
+        {
             return true;
-        } else {
+        } 
+        else 
+        {
             return false;
         }
     }
 
-    public boolean lowIntersect(Node target) {
-        if (this.lowLim <= target.lowLim && this.highLim >= target.lowLim && this.lowLim < target.highLim
-                && this.highLim < target.highLim) {
+    public boolean lowIntersect(Node target)
+    {
+        if(this.lowLim >= target.lowLim 
+        && this.lowLim <= target.highLim
+        && this.highLim > target.highLim 
+        && this.highLim > target.lowLim)
+        {
             return true;
         }
         return false;
     }
 
-    public boolean highIntersect(Node target) {
-        if (this.lowLim < target.lowLim && this.highLim < target.lowLim && this.lowLim >= target.highLim
-                && this.highLim <= target.highLim) {
+    public boolean highIntersect(Node target) 
+    {
+        if(this.lowLim < target.lowLim 
+        && this.lowLim < target.highLim
+        && this.highLim >= target.lowLim
+        && this.highLim <= target.highLim)
+        {
             return true;
         }
         return false;
     }
 
-    public String toString() {
+    public String toString() 
+    {
         return "[" + Integer.toString(this.lowLim) + "," + Integer.toString(this.highLim) + "]";
     }
 }// end Node class
 
-class List {
+class List 
+{
     Node head;
+    int length;
     int lowExtreme;
     int highExtreme;
 
-    public List(Node head) {
+    public List(Node head) 
+    {
         this.head = head;
+        this.length = 1;
         this.lowExtreme = head.lowLim;
         this.highExtreme = head.highLim;
     }
@@ -97,22 +129,29 @@ class List {
         Node ptr = this.head;
 
         while (ptr != null) {
-            if (interval.lowLim <= ptr.lowLim && interval.highLim <= ptr.highLim) {
-                if (ptr.prev == null) {
+            if (interval.lowLim <= ptr.lowLim && interval.highLim <= ptr.highLim) 
+            {
+                if (ptr.prev == null) 
+                {
                     this.head = interval;
                     interval.next = ptr;
                     ptr.prev = interval;
-                } else {
+                } 
+                else 
+                {
                     interval.prev = ptr.prev;
                     interval.next = ptr;
                     ptr.prev.next = interval;
                     ptr.prev = interval;
                 }
+                this.length++;
                 return;
             }
-            if (ptr.next == null) {
+            if (ptr.next == null) 
+            {
                 ptr.next = interval;
                 interval.prev = ptr;
+                this.length++;
                 return;
             }
             ptr = ptr.next;
@@ -120,38 +159,35 @@ class List {
 
     }
 
-    public static Set findSmallestCover(List intervals) {
-
+    public static Set findSmallestCover(List intervals) 
+    {
         Set smallest = new Set();
-
         Node ptr = intervals.head;
+        int pivot = 0;
 
-        while (ptr != null) {
-            if (ptr.prev == null) {
-                ptr = ptr.next;
-            }
-            for (int i = ptr.lowLim; i <= ptr.highLim; i++) {
-                if (i > ptr.prev.lowLim && i < ptr.prev.highLim) {
-                    smallest.addElement(i);
-                } else {
-                    smallest.addElement(ptr.prev.highLim);
-                }
-            }
-            ptr = ptr.next;
+        while(ptr != null)
+        {   
+            Node scout = ptr.next;
+            while(scout != null)
+            {
+                
+            }            
         }
 
         return smallest;
     }
 }// end class List
 
-class TestApp {
-    public static void main(String[] args) {
+class TestApp 
+{
+    public static void main(String[] args) 
+    {
         Node one = new Node(0, 3);
         Node two = new Node(3, 4);
         Node three = new Node(2, 4);
         Node four = new Node(6, 9);
 
-        System.out.println(three.highIntersect(two));
+        System.out.println(three.isSubset(two));
 
         List list = new List(one);
         list.addInterval(two);
@@ -159,7 +195,8 @@ class TestApp {
         list.addInterval(four);
 
         Node curr = list.head;
-        while (curr != null) {
+        while (curr != null) 
+        {
             System.out.println(curr.toString());
             curr = curr.next;
         }

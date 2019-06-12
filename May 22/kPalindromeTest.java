@@ -7,18 +7,31 @@ class kPalindrome{
     {
         
         char[] palindromeArr = palindrome.toCharArray();
-        int start = 0;
-        int end = palindromeArr.length - 1;
+        int start;
+        int end;
+        int middle = palindrome.length()/2;
+
+        if(palindrome.length()%2 == 0)
+        {
+            
+            start = middle - 1;
+            end = middle;
+        }
+        else
+        {
+            start = middle;
+            end = middle;
+        }
 
         if(palindromeArr.length == 0)
             return false;
 
-        while(start < end)
+        while(start >= 0 && end < palindrome.length())
         {
             if(palindromeArr[start] == palindromeArr[end])
             {
-                start++;
-                end--;
+                start--;
+                end++;
             }
             else
             {
@@ -34,6 +47,6 @@ class TestApp
 {
     public static void main(String[] args)
     {
-        System.out.println(kPalindrome.isKPalindrome(1, "alba"));
+        System.out.println(kPalindrome.isKPalindrome(1, "baaab"));
     }
 }

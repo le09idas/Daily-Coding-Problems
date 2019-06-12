@@ -24,22 +24,8 @@ scientific notation
 
 Initial though t:
 Looks like we just need to create the 
-logic for a finite state machine and then 
-respective code for each step
-
-Here is the state machine graph:
-
-
-                     no -> error
-                    /
-            decimal? -> yes
-               /          \
-     no       no           \
-    /  \     /
-'-'?   number?
-    \  /     \
-     yes      yes
-
+logic for a finite state machine for each case
+with their own set of steps
 
 
 

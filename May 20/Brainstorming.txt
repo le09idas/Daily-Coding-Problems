@@ -52,9 +52,9 @@ Let's try to use some different points
 [4,6] . . . . ._._. . . .
 [6,9] . . . . . . ._._._.
 
-This answer could be {2, 7}
+This answer could be {2, 6}
 
-Say we have this sort of intervals
+Say we have these sort of intervals
 
 [0,2] ._._. . . . . . . .
 [3,4] . . . ._. . . . . .

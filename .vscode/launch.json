@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TestApp",
+            "request": "launch",
+            "mainClass": "TestApp"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - TestSquareMerge",
             "request": "launch",
             "mainClass": "TestSquareMerge"
