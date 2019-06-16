@@ -24,8 +24,11 @@ Maybe a recursive algorithm would be most
 capable of solving this.
 
 The brute force method would entail listing out all the sums
-between each node of the tree until K is made
+between each node of the tree until K is made (or not). It's probably best
+to find the smallest and then from there find all sums until we either match 
+k or get a sum that is greater than k
 
 Note, we cannot have a single noded tree; we'll always need at least
 2 nodes for a sum.
+
 
