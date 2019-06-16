@@ -1,15 +1,49 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for June 4 2019
 
-<Prompt/Question>
+This problem was asked by Facebook.
+
+You have a large array with most of 
+the elements as zero.
+
+Use a more space-efficient data structure, 
+SparseArray, that implements the same interface:
+
+init(arr, size): initialize with the original large array and size.
+set(i, val): updates index at i with val.
+get(i): gets the value at index i.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+original class
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
 
-<Additional ideas and thoughts/notes>
+I think that this could be made more efficient with key-value list 
+that maps any non-zero value of the array to its index. There 
+should also be a value that keeps track of the number of zeros in the 
+list.  
+
+pseudo-code:
+
+zeroful_list_class()
+    number_of_zeros
+    index_value_mapping_list
+
+init(arr, size)
+    go through arr
+        if value isn't 0
+            number_of_zeros--
+            index_value_mapping_list[i] = (i, arr[i])
+
+set(i, val)
+    if i isn't mapping to a value
+        number_of_zeros--
+        index_value_mapping_list[i] = (i, val)
+    else if i is mapped but val is zero
+        remove index_value_mapping_list[i]
+        number_of_zeros++
+    if i is mapped already
+        replace value of index_value_mapping_list[i]
+
+get(i)
+    if i is mapped 
+        return index_value_mapping_list[i]

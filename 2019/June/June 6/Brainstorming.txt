@@ -1,11 +1,21 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for June 6 2019
 
-<Prompt/Question>
+This question was asked by Google.
+
+Given an N by M matrix consisting only of 
+1's and 0's, find the largest rectangle 
+containing only 1's and return its area.
+
+For example, given the following matrix:
+
+[[1, 0, 0, 0],
+ [1, 0, 1, 1],
+ [1, 0, 1, 1],
+ [0, 1, 0, 0]]
+Return 4.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+binary value matrix
 
 Initial thought:
 <the first idea that comes 
