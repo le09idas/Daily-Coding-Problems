@@ -1,8 +1,10 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for June 16 2019
 
 his question was asked by BufferBox.
 
-Given a binary tree where all nodes are either 0 or 1, prune the tree so that subtrees containing all 0s are removed.
+Given a binary tree where all nodes are either 
+0 or 1, prune the tree so that subtrees containing 
+all 0s are removed.
 
 For example, given the following tree:
 
@@ -20,17 +22,15 @@ should be pruned to:
  1   0
     /
    1
-We do not remove the tree at the root or its left child because it still has a 1 as a descendant.
+
+We do not remove the tree at the root or its 
+left child because it still has a 1 as a descendant.
 
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+A binary binary tree
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
-
-<Additional ideas and thoughts/notes>
+We will definitely be able to use recursion 
+to get what we need done.  All we have to do is descend into the 
+tree and remove any zero children that have not children.
