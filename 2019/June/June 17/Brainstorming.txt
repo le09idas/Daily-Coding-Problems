@@ -1,15 +1,24 @@
 Daily Coding Problem for <Month> <day> <year>
 
-<Prompt/Question>
+Given a list, sort it using this method: reverse(lst, i, j), which reverses lst from i to j.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+a list and two indices
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+I am thinking that all that really needs to be 
+done is for two pointers to reference the first and last
+items in the sublist and switch them in the list, then 
+get closer to the middle value(s) of the sublist.
 
-<Additional ideas and thoughts/notes>
+what could be done is to extract the sublist from the main
+list temporarily
+
+when the sublist is extracted, we can pop each piece off
+and have them point to the previously popped piece
+(the first one will have to be made a ptr)
+
+after the list is reversed, we count back to the position
+before the sublist make the previously use pointer the next item
+then traverse that sublist and connect that last node to the 
+index after the end of the substring.

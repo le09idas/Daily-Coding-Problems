@@ -1,15 +1,30 @@
 Daily Coding Problem for <Month> <day> <year>
 
-<Prompt/Question>
+Given a 2-D matrix representing an image, a 
+location of a pixel in the screen and a color C, 
+replace the color of the given pixel and all adjacent 
+same colored pixels with C.
+
+For example, given the following matrix, and location 
+pixel of (2, 2), and 'G' for green:
+
+B B W
+W W W
+W W W
+B B B
+Becomes
+
+B B G
+G G G
+G G G
+B B B
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+2-D array
+target pixel
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
-
-<Additional ideas and thoughts/notes>
+So we do the following:
+note the color of the pixel at the give coordinate
+do a breadth search on surronding idices for similar colored pixels
+change the colors after visiting each one.

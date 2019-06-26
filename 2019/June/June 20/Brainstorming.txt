@@ -1,15 +1,22 @@
 Daily Coding Problem for <Month> <day> <year>
 
-<Prompt/Question>
+This problem was asked by LinkedIn.
+
+Given a list of points, a central point, 
+and an integer k, find the nearest k points 
+from the central point.
+
+For example, given the list of points [(0, 0), (5, 4), (3, 1)], 
+the central point (1, 2), and k = 2, return [(0, 0), (3, 1)].
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+A point
+A distance from that point
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
-
-<Additional ideas and thoughts/notes>
+So it seems that it would be good enough to do this:
+set a list of k coordinates. 
+interate through the list looking for the closest point
+put that point at the front of the list
+repeat k - 1 more times, skipping the first idices which 
+were already switched out for the minimum. 

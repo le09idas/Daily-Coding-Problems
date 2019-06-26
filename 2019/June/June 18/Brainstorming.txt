@@ -1,15 +1,42 @@
 Daily Coding Problem for <Month> <day> <year>
 
-<Prompt/Question>
+This problem was asked by Apple.
+
+Gray code is a binary code where each successive value differ in only one bit,
+as well as when wrapping around. Gray code is common in hardware so that we 
+don't see temporary spurious values during transitions.
+
+Given a number of bits n, generate a possible gray code for it.
+
+For example, for n = 2, one gray code would be [00, 01, 11, 10].
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+a number for how many bits to make gray code for
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+Put another way, the goal is to list all possible binary 
+values made up of n bits, but to order them in a way where
+successive value only differ in one bit.
 
-<Additional ideas and thoughts/notes>
+Making things more simple, lets take n=1. 
+We have the solution [0, 1].
+
+We have already seen the solution to n=2.
+
+For n=3, we would have
+[000, 001, 011, 010, 100, 101, 111, 110]
+
+Things to note are the following:
+1) there will always be 2^n items in the gray code snippet.
+2) the nth list is just the (n-1)th list but with 
+double the values and the appending of 0 and 1 prefixes to 
+half
+
+Since we know how many total strings there will be, 
+we can safely use an array to store the values.
+
+The algorithm will go like so:
+-we declare and allocate an array of 2^n items
+-we recursively get the result of the (n-1)th list
+-we add 0 to the values of the previous list for the 
+first half values and then 1 the other half

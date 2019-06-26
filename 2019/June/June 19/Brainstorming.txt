@@ -1,15 +1,23 @@
 Daily Coding Problem for <Month> <day> <year>
 
-<Prompt/Question>
+This problem was asked by Goldman Sachs.
+
+Given a list of numbers L, implement a method sum(i, j) 
+which returns the sum from the sublist L[i:j] (including i, excluding j).
+
+For example, given L = [1, 2, 3, 4, 5], sum(1, 3) should 
+return sum([2, 3]), which is 5.
+
+You can assume that you can do some pre-processing. 
+sum() should be optimized over the pre-processing step.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+An interval to get the summation of
+a list of integers
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+This seems simple enough.
 
-<Additional ideas and thoughts/notes>
+Get a sum started with the value at index i,
+add subsequent idex values,
+stop when you reach index j.
