@@ -1,15 +1,33 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for June 26 2019
 
-<Prompt/Question>
+This problem was asked by Facebook.
+
+Given a positive integer n, find the smallest 
+number of squared integers which sum to n.
+
+For example, given n = 13, return 2 since 
+13 = 3^2 + 2^2 = 9 + 4.
+
+Given n = 27, return 3 since 
+27 = 3^2 + 3^2 + 3^2 = 9 + 9 + 9.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+integer 
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+Let's start off with the base case, 1.
 
-<Additional ideas and thoughts/notes>
+That would just be 1^2.
+
+2 would be 1^2 + 1^2
+
+3 = 1^2 + 1^2 + 1^2
+4 = 1^2 + 1^2 + 1^2 + 1^2
+5 = 2^2 + 1^2
+6 = 2^2 + 1^2 + 1^2
+7 = 2^2 + 1^2 + 1^2 + 1^2
+8 = 2^2 + 2^2
+9 = 3^2
+10 = 3^2 + 1^2
+11 = 3^2 + 1^2 + 1^2
+12 = 
