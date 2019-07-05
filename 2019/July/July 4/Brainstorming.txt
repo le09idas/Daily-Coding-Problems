@@ -1,0 +1,21 @@
+Daily Coding Problem for July 4 2019
+
+This problem was asked by Google.
+
+You are given an array of length n + 1 
+whose elements belong to the set {1, 2, ..., n}. 
+By the pigeonhole principle, there must be a duplicate. 
+Find it in linear time and space.
+
+Given:
+Array of integers
+
+Initial thought:
+My thought is to set up a list which is empty.
+Then assign each element to a spot in the list. If we 
+encounter a situation where we're adding an element to an
+index that is already filled, we have found our duplicate.
+
+Since all integers 1 to n are included, we just have to make 
+the array (which can be boolean valued initialized to all false) 
+of size n.

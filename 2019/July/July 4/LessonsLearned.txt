@@ -1,0 +1,17 @@
+Summary:
+
+For a given array of size n, a boolean list 
+was created with the same size.  Each element was
+set to false.  We iterate through the given array of 
+integers.  Since all numbers between 1 and n will be given,
+we set the number index of the boolean list that is the same 
+as the current integer in the current index of the boolean list as true.
+If we get a number which requires that it be mapped to an index in the 
+boolean list that is already set to true, we have found our duplicate.
+
+Lesson1: This dictionary like design is very powerful and efficiently uses the space given
+to increase the speed
+
+Final Thoughts:
+This is certainly a case where the dictionary works wonders.  With a little
+investment of space the runtime certainly improves.

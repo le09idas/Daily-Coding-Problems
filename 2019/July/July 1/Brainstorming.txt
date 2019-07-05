@@ -1,0 +1,19 @@
+Daily Coding Problem for <Month> <day> <year>
+
+This problem was asked by Facebook.
+
+Given a 32-bit integer, return the number with its 
+bits reversed.
+
+For example, given the binary number 1111 0000 1111 0000 1111 0000 1111 0000, 
+return 0000 1111 0000 1111 0000 1111 0000 1111.
+
+Given:
+32-bit integer
+
+Initial thought:
+<the first idea that comes 
+to mind when thinking about tackling
+the above problem>
+
+<Additional ideas and thoughts/notes>
