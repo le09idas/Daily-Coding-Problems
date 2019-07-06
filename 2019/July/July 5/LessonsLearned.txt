@@ -1,0 +1,15 @@
+Summary:
+
+The basic idea is that we traverse the given array
+from every index to the end.  On each iteration, we
+keep track of how many integers are less than the current
+index's value.  After we get to the end of the list each time,
+we replace the value of the array with how many integers are
+less than the current index's value.
+
+Lesson1: Brute force may sometimes be the only option
+
+Final Thoughts:
+Even though there are two loops, the time it takes this
+program to complete is always going to be less than 
+n^2.  It may be closer to (n^2)/2.
