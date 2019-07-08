@@ -1,0 +1,23 @@
+Daily Coding Problem for July 7 2019
+
+Difficulty: Hard
+
+This problem was asked by Airbnb.
+
+Given a list of words, find all pairs of unique 
+indices such that the concatenation of the two words 
+is a palindrome.
+
+For example, given the list ["code", "edoc", "da", "d"], 
+return [(0, 1), (1, 0), (2, 3)].
+
+Given:
+list of String fragments
+
+Initial thought:
+It seems here the brute force method is the way to go.  
+But, first, a method for checking if a word is a palindrome will be necessary.
+Once that is squared away, we should be able to combine each fragment to each other,
+check if its a palindrome, and add it to an array list.  Maybe doing both variations
+of combining two strings would lessen the run time by eliminating the need to beat around the bush,
+i.e., reiterate already visited indices for each new index.

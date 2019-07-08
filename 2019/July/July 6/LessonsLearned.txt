@@ -1,0 +1,19 @@
+Summary:
+
+Used an inner pointer class for the iterator
+to keep track of what the next item to return was.
+Invoking next() simply moves the ptr up the ladder
+to the next item to return. has_next() merely faints
+a move to see if there are any more items left.
+
+Lesson1: It appears that checking in descending order of object level is always
+beneficient; i.e., it's better to start checking the actual list before its indices
+Lesson2:Inner classes are nice to have but sometimes can be replaced by more simple
+means of manipulating data
+
+Final Thoughts:
+It was nice to stretch my legs with the usage of an inner class.  It was smooth to 
+work with and really helped keep the code clearer in the main area of logic of next().
+The hardest parts of problems like these isn't the actual method with which to extract 
+the information but actually traversing the arrays and finding the proper timing when it
+comes to returning the information desired.

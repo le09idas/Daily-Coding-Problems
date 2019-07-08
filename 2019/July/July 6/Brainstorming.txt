@@ -1,0 +1,33 @@
+Daily Coding Problem for July 6 2019
+
+Difficulty: Medium
+
+This problem was asked by Uber.
+
+Implement a 2D iterator class. It will be initialized 
+with an array of arrays, and should implement the following methods:
+
+next(): returns the next element in the array of arrays. If there are 
+no more elements, raise an exception.
+has_next(): returns whether or not the iterator still has elements left.
+
+For example, given the input [[1, 2], [3], [], [4, 5, 6]], calling next() 
+repeatedly should output 1, 2, 3, 4, 5, 6.
+
+Do not use flatten or otherwise clone the arrays. Some of the arrays can be empty.
+
+Given:
+Array of arrays
+
+Initial thought:
+Since the arrays won't extend pass 2 dimenstions,
+we can set up a coordinate pointer that nodes which list 
+we're in and which index of that list. Basically we'll have
+ptr (x, y) where x is the current array and y the current index of that array.
+
+next() will just increment the y coordinate first, then if the end of the 
+array is reached the x coordinate will be increased.
+
+has_next() will just confirm there is a next either by 
+seeing if there is an upcoming index, or if at the end of a list, if there is another
+(with elements that is).

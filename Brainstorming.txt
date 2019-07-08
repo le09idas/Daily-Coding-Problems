@@ -1,5 +1,7 @@
 Daily Coding Problem for <Month> <day> <year>
 
+Difficulty:
+
 <Prompt/Question>
 
 Given:
