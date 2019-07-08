@@ -1,0 +1,14 @@
+Summary:
+
+There are a couple of things that needed to be
+done: 1) make the palindrome function, 2) make
+a function to travers a list of strings and return
+the valid pair combinations
+
+Lesson1: When you're gonna use inner class, you can use them with static methods
+Lesson2: It seems that with any palindrome problem, brute force is usually the way to go
+
+Final Thoughts:
+Palindromes are very curious because they demand the need to use greedy algorithms to verify their 
+existence.  However, with some tinkering, i.e., checking if a pair can be combined in two ways with 
+a single visit, can cut the already taxing runtime in half.
