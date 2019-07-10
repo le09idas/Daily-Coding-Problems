@@ -22,8 +22,9 @@ class MatrixOps
     public static int[][] stingyRotateClockwise(int[][] matrix, int n)
     {
         int[][] rotated = new int[n][n];
-         
-        return null;
+        
+        
+        return rotated;
     }
 }
 

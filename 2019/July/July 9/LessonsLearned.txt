@@ -1,0 +1,22 @@
+Summary:
+
+So I basically applied a mergesort on the array.
+The first thing to do was to find the pivot node at 
+which to divide teh lists.  This was basically a ptr that started
+from the head and traversed the linked list until a counter hits
+a certain length.  Then the process is called recursively 
+on segments bigger than 2 nodes.  If the segment passed is 1 in length,
+it's next is nulled and the node is returned.  If two, a comparison is made, then 
+the necessary changes in order if necessary and the segment is returned. When 
+the recursive functions return their products, the method does what is necessary
+to combine the resultant linked lists.
+
+Lesson1: Odd lengthed lists need to always be considered when writing a sort function
+Lesson2: For singly linked lists, counters are useful in measuring where you are in the list
+
+Final Thoughts:
+Sometimes it's kind of jarring to apply an algorithm you
+would usually apply to an array on a linked list.  The biggest hurdle
+is that instead of indices you're dealing with contiguous pieces of data.
+However, there is always something crafty you can do, like use a counter to 
+set up a pivot or see how long the singly linked list is.  
