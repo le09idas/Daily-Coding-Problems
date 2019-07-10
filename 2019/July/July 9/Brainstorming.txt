@@ -1,0 +1,17 @@
+Daily Coding Problem for <Month> <day> <year>
+
+Difficulty:
+
+<Prompt/Question>
+
+Given:
+<list of variables and 
+considerations for the 
+problem>
+
+Initial thought:
+<the first idea that comes 
+to mind when thinking about tackling
+the above problem>
+
+<Additional ideas and thoughts/notes>
