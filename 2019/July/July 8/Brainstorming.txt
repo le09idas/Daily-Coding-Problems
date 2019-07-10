@@ -21,13 +21,14 @@ you should return:
 Follow-up: What if you couldn't use any extra space?
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+A square matrix
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+The obvious way would be to make a blank matrix and rotate
+each item in the current array to it's final rotated position.
 
-<Additional ideas and thoughts/notes>
+Taking a pointer from linear algebra and matrices in general,
+we merely need to take each row and make it the new column starting from 
+the higher addresses of each row.
+
+But now what if we can't use any extra space? 

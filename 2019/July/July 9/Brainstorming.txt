@@ -1,17 +1,35 @@
 Daily Coding Problem for <Month> <day> <year>
 
-Difficulty:
+Difficulty: Medium
 
-<Prompt/Question>
+This problem was asked by Google.
+
+Given a linked list, sort it in O(n log n) 
+time and constant space.
+
+For example, the linked list 
+
+4 -> 1 -> -3 -> 99 
+
+should become 
+
+-3 -> 1 -> 4 -> 99.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+linked list
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+Normally I would use an algorithm similar to bubble 
+or quick sort. However, the limitation of constant space is 
+a pickle.  However the logn gives the appearance that some sort of binary 
+process is needed. 
 
-<Additional ideas and thoughts/notes>
+With that in mind, we could take two pointers, have one be the head, and another a pivot.
+
+We have the first item become the pivot, and the initial head.  The next node becomes either/or
+depending on the difference of the nodes' values.  The head will be the smallest value and the pivot
+a middle value.  If a value is less than the Pivot, we add the extracted node From the original list 
+starting from the head, other wise start from the pivot.  We could also have a tail end and if the value
+is greater, just add it to the end and set it as the new tail.
+
+Doing some research it appears that merge sort should be a solution.
