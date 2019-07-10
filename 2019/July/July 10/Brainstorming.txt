@@ -1,0 +1,45 @@
+Daily Coding Problem for July 10 2019
+
+Difficulty: Medium
+
+This question was asked by Facebook.
+
+Given a start word, an end word, and a dictionary of valid words, find the shortest transformation
+sequence from start to end such that only one letter is changed at each step of the sequence, and each
+transformed word exists in the dictionary.  If there is no possible transformation, return null.  Each 
+word in the dictionary have the same length as start and end and is lowercase.
+
+For example, given start = 'dog', end = 'cat', and dictionary =
+{'dot', 'dop', 'dat', 'cat'}, return 
+['dog', 'dot', 'dat', 'cat']. 
+
+Given start = 'dog', end = 'cat', and dictionary = {'dot', 'tod', 'dat', 'dar'}, return null
+as there is no possible tranformation from dog to cat.
+
+Given:
+Start string, end string, dicionary (array of strings)  
+
+Initial thought:
+This is one of those problems that will require the utmost
+brute force available.  
+
+This problem seems simple but there are a few complications that could arise.
+
+But first, there are a few things to consider.  The prompt asks for the least amout of changes
+before you get to the end word. The least amount should always be at most n, where n is the number of letters in 
+each word. Also, the end word needs to be in the dictionary.  
+
+So a preliminary check should be sent through the entire array to check if this is true.  Also, if the given dictionary is less
+than n, we can conclude that there is no shortest path that's valid.
+
+There doesn't seem to be a pattern that can be applied so brute force is the only way as far as I can see.
+
+The base case would be words of length one.  Let's take 'a' and 'b'.  For there to be a shortest path, 
+the dictionary would only have to contain 'b'.
+
+When n = 2, let's say 'ba' and 'cd', we would need at least two to connect 'ba' with 'cd', i.e.
+'ba' -> 'ca' -> 'cd' or 'ba'-> 'bd'->'cd'
+
+With n = 3, let's say 'abc' and 'def', we need three, i.e. 
+'abc' -> 'aec' -> 'dec' -> 'def' or 'abc'->'dbc'->'dec'->'def'
+or 'abc'->'abf'->
