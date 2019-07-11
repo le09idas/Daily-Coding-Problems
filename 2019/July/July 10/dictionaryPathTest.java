@@ -55,10 +55,20 @@ class Dictionary
                 {
                     path.add(dict.get(k));
                     break;
-                }
+                } 
+            }
+            if(path.size() != j + 1)
+            {
+                return null;
             }
             j++;
             i++;
+            
+        }
+
+        if(path.size() != diff + 1)
+        {
+            return null;
         }
 
         return path;
@@ -69,12 +79,15 @@ class TestApp
 {
     public static void main(String[] args)
     {
-        String[] dict = {"dop", "dot", "dat", "cat"};
-        String start = "dog";
-        String end = "cat";
+        String[] dict = {"best", "bask", "bast", "zest", "bark"};
+        String start = "test";
+        String end = "bark";
 
         ArrayList<String> list = Dictionary.getShortestPath(start, end, dict);
 
-        System.out.println(list.toString());
+        if(list != null)
+            System.out.println(list.toString());
+        else
+            System.out.println("No shortest path");
     }
 }
