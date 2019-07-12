@@ -1,17 +1,31 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for July 11 2019
 
-Difficulty:
+Difficulty: Easy
 
-<Prompt/Question>
+This problem was asked by Amazon.
+
+You are given a list of data entries that represent entries and exits of groups 
+of people into a building. An entry looks like this:
+
+{"timestamp": 1526579928, count: 3, "type": "enter"}
+
+This means 3 people entered the building. An exit looks like this:
+
+{"timestamp": 1526580382, count: 3, "type": "enter"}
+
+This means that 2 people exited the building. timestamp is in Unix time.
+
+Find the busiest period in the building, that is, the time with the most people in the building. Return it as a pair of (start, end) 
+timestamps.  You can assume the building always starts off and ends upd empty, i.e with 0 people inside
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+A list of data entries
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+It would seem sthat the most straightforward approach would be best.
+I would make an initial pass of the list and make a list of objects that 
+store the current total and the period (ie the enter then exit) of that total.
+Then after the pass, I would traverse the second resultant list and pick
+the period with the most amount of people.  (N.B. I think that this can actually be done 
+even without a period list)
 
-<Additional ideas and thoughts/notes>
