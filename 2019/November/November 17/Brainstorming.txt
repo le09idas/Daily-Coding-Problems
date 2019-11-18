@@ -1,4 +1,4 @@
-Daily Coding Problem for <day>-<month>-<year>
+Daily Coding Problem for <Month> <day> <year>
 
 Difficulty:
 
