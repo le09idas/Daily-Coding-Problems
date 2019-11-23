@@ -1,17 +1,20 @@
-Daily Coding Problem for <Month> <day> <year>
+Daily Coding Problem for 17-11-2019
 
-Difficulty:
+Difficulty: Easy
 
-<Prompt/Question>
+This problem was asked by Uber.
+
+On election day, a voting machine writes data in the form (voter_id, candidate_id) 
+to a text file. Write a program that reads this file as a stream and returns the 
+top 3 candidates at any given time. If you find a voter voting more than once, report 
+this as fraud.
 
 Given:
-<list of variables and 
-considerations for the 
-problem>
+A file with a number of voter_id:candidate_id mappings
 
 Initial thought:
-<the first idea that comes 
-to mind when thinking about tackling
-the above problem>
+So the first thing that comes to mind is take in the stream and do a regular collection
+and retain the top 3 candidates.
 
-<Additional ideas and thoughts/notes>
+To parse the fraudulent votes, the same would be done but the parameter filtered
+would be 
