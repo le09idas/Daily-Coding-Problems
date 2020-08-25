@@ -1,1 +1,11 @@
 *.class
+*.cs
+*.pdb
+*.json
+*.dll
+*.exe
+*.cache
+*.txt
+*.targets
+*.props
+*.csproj
